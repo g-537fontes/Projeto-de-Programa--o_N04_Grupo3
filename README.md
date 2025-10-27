@@ -54,5 +54,7 @@ Semana 03
 
 ● Adicionar lógica de atualização automática de status após pagamento
 
+Semana 04
+
 
 
