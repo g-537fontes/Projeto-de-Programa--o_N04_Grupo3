@@ -12,7 +12,7 @@ public class Main {
         CadastrarEvento evento = new CadastrarEvento();
         boolean nomeValido = evento.validarNomeEvento("Show ZN", new String[]{"Show BH", "Festa SP"});
         System.out.println("Nome do evento válido? " + nomeValido);
-
+    
         // ---- Regras de usuário ----
         CadastroComum usuario = new CadastroComum();
         System.out.println("Email válido? " + usuario.validarEmail("larissa@gmail.com"));
@@ -27,6 +27,7 @@ public class Main {
         // ---- Relatórios ----
         RelatorioDeVendasEvento relatorio = new RelatorioDeVendasEvento();
         relatorio.gerarRelatorio(true);
+    
     }
 }
 
