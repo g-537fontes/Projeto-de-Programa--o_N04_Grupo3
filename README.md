@@ -20,8 +20,9 @@ Semana 02
 ○ Documentar (ABNT) e revisar o módulo
 ○ Corrigir bugs e documentação (diagramas UML e Requisitos)
 ○ EXTRA (+0,5):
-■ Implementar geração automática de QR Code para validação do ingresso
+■ Implementar geração automática de QR Code para validação do ingresso e armazenar data de emissão
 ■ Adicionar controle de validade, por exemplo, ingresso expirado
+
 
 *Bibliotecas utilizadas*
 
@@ -31,7 +32,11 @@ Semana 02
 
 *Prints ou exemplos de saída*
 
-Semana 03 
+Semana 03
 
+● Criar a tabela ingresso com campos: id, codigo, tipo, valor, status, id_evento, id_participante
+● Implementar o repositório IngressoRepository com operações CRUD
+● Criar método para verificar disponibilidade de ingressos no momento da compra
+● Adicionar lógica de atualização automática de status após pagamento
 
 
