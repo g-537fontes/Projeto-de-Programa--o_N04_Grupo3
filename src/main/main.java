@@ -1,33 +1,77 @@
 package main;
 
 import cadastroevento.CadastrarEvento;
+import gestaodeusuario.CadastroAdministrador;
 import gestaodeusuario.CadastroComum;
 import gerenciamentodeingressos.CompraDeIngresso;
 import historicoserelatorios.RelatorioDeVendasEvento;
 
-public class Main {
+import java.util.Scanner;
+
+public class main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        // ---- Regras de evento ----
+        // Instanciando as classes principais
         CadastrarEvento evento = new CadastrarEvento();
-        boolean nomeValido = evento.validarNomeEvento("Show ZN", new String[]{"Show BH", "Festa SP"});
-        System.out.println("Nome do evento válido? " + nomeValido);
-
-        // ---- Regras de usuário ----
         CadastroComum usuario = new CadastroComum();
-        System.out.println("Email válido? " + usuario.validarEmail("larissa@gmail.com"));
-        System.out.println("Senha válida? " + usuario.validarSenha("123456"));
-
-        // ---- Regras de ingressos ----
+        CadastroAdministrador cadastroAdm = new CadastroAdministrador();
         CompraDeIngresso compra = new CompraDeIngresso();
-        double preco = compra.calcularPrecoFinal(100, true);
-        preco = compra.aplicarTaxaVip(preco, true);
-        System.out.println("Preço final do ingresso: " + preco);
-
-        // ---- Relatórios ----
         RelatorioDeVendasEvento relatorio = new RelatorioDeVendasEvento();
-        relatorio.gerarRelatorio(true);
+
+        int opcao;
+
+        do {
+            System.out.println("\n===== MENU PRINCIPAL =====");
+            System.out.println("1 - Cadastrar Evento");
+            System.out.println("2 - Cadastrar Usuário");
+            System.out.println("3 - Comprar Ingresso");
+            System.out.println("4 - Gerar Relatório de Vendas");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("\n--- Cadastro de Evento ---");
+                    evento.cadastrarEvento();
+                    break;
+
+                case 2:
+                    System.out.println("\n--- Cadastro de Usuário ---");
+                    System.out.println("Você deseja fazer o cadastro como usuario ou administrador? ");
+                    System.out.println("1- Usuario: ");
+                    System.out.println("2- Administrador: ");
+                    int escolhaUsuario = scanner.nextInt();
+                    if (escolhaUsuario == 1) {
+                        usuario.cadastrarUsuario();
+                    } else if (escolhaUsuario == 2) {
+                        cadastroAdm.cadastrarAdministrador();
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("\n--- Compra de Ingresso ---");
+                    compra.realizarCompra();
+                    break;
+
+                case 4:
+                    System.out.println("\n--- Relatório de Vendas ---");
+                    relatorio.gerarRelatorio(true);
+                    break;
+
+                case 0:
+                    System.out.println("\nEncerrando o sistema...");
+                    break;
+
+                default:
+                    System.out.println("\nOpção inválida. Tente novamente!");
+            }
+
+        } while (opcao != 0);
+
+        scanner.close();
     }
 }
-
-

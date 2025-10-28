@@ -24,5 +24,9 @@ public class CompraDeIngresso {
             return preco;
         }
     }
+
+    public void realizarCompra() {
+
+    }
 }
 
