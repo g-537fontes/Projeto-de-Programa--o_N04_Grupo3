@@ -14,10 +14,17 @@ public class main {
 
         // Instanciando as classes principais
         CadastrarEvento evento = new CadastrarEvento();
+
+        boolean nomeValido = evento.validarNomeEvento("Show ZN", new String[]{"Show BH", "Festa SP"});
+        System.out.println("Nome do evento válido? " + nomeValido);
+    
+        // ---- Regras de usuário ----
+
         CadastroComum usuario = new CadastroComum();
         CadastroAdministrador cadastroAdm = new CadastroAdministrador();
         CompraDeIngresso compra = new CompraDeIngresso();
         RelatorioDeVendasEvento relatorio = new RelatorioDeVendasEvento();
+
 
         int opcao;
 
@@ -73,5 +80,6 @@ public class main {
         } while (opcao != 0);
 
         scanner.close();
+
     }
 }
