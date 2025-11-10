@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Projeto-de-Programa--o_N04_Grupo3" />
+        <module name="gerenciamento-ingressos" />
       </profile>
     </annotationProcessing>
   </component>
