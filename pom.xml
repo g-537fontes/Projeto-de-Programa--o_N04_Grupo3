@@ -4,35 +4,79 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Defina o grupo, artefato e versão do seu projeto -->
-    <groupId>com.vortexstudio</groupId> <!-- Altere conforme necessário, geralmente seu domínio ou nome do projeto -->
-    <artifactId>gerenciamento-ingressos</artifactId> <!-- Nome do artefato -->
-    <version>1.0-SNAPSHOT</version> <!-- Versão do seu projeto -->
+    <groupId>com.vortexstudio</groupId>
+    <artifactId>gerenciamento-ingressos</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-    <!-- Propriedades do Maven -->
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <!-- Dependências do projeto -->
+    <!-- Gerenciamento de versões das dependências do Spring Boot -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Importa as versões do Spring Boot para gerenciar todas as dependências -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.5.4</version> <!-- Versão do Spring Boot, substitua pela mais recente -->
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <!-- Dependência Gson para manipulação de JSON -->
+        <!-- Dependência do Spring Boot Starter Web para criar aplicações web com Spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Data JPA para persistência de dados com banco de dados -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Dependência para o banco de dados (H2) para testes locais -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version> <!-- Verifique se a versão está atualizada -->
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Dependência para segurança com o Spring Security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- Dependência para o JUnit para testes unitários -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Dependência para Gson (para manipulação de JSON) -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.8</version>
         </dependency>
 
-        <!-- Dependência para trabalhar com JUnit (caso precise para testes) -->
+        <!-- Dependência Lombok para reduzir código boilerplate -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
 
-        <!-- Dependência para manipulação de banco de dados (se necessário futuramente) -->
+        <!-- Conector para MySQL (caso você use MySQL em produção) -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -48,7 +92,7 @@
         </repository>
     </repositories>
 
-    <!-- Build -->
+    <!-- Configuração de Build -->
     <build>
         <plugins>
             <!-- Plugin para compilar o código -->
@@ -68,8 +112,14 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>gerenciamentodeingressos.IngressoService</mainClass> <!-- Substitua pelo nome da sua classe principal -->
+                    <mainClass>com.vortexstudio.GerenciamentoIngressosApplication</mainClass> <!-- Classe principal do Spring Boot -->
                 </configuration>
+            </plugin>
+
+            <!-- Plugin para Spring Boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
