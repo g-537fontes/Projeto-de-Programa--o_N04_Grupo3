@@ -65,6 +65,10 @@ Cada pacote é responsável por uma parte do sistema:
 ---
 
 # 📄 Histórico de Revisões
-| Versão | Data | Descrição | Autor |
-|--------|------|------------|--------|
-| 1.0 | 26/10/2025 | Documento inicial de funcionalidades | Larissa |
+| Versão | Data       | Descrição                                                                                                                         | Autor                         |
+|--|------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| 1.0 | 26/10/2025 | Desenvolvimento estrutural do projeto, Criação de novas pastas e README, Criação de novos arquivos e implementação nas java class | Gabriel Almeida Dantas Fontes |
+|  | 27/10/2025 | Organizando o README e atualizando a main                                                                                         | Gabriel Almeida Dantas Fontes |
+|  | 28/10/2025 | Criando e ajustando cadastro ADM e cadastro comum                                                                                 | Gustavo Miguel                |
+|  | 03/11/2025 | Repositório para persistir dados                                                                                                  | Gabriel Almeida Dantas Fontes |
+|  | 26/10/2025 | Criando Ingressos.json                                                                                                            | Gabriel Almeida Dantas Fontes |
