@@ -55,7 +55,16 @@ Semana 03
 ● Adicionar lógica de atualização automática de status após pagamento
 
 Semana 04
-ex
+
+● Interface e integração entre moódulos
+
+Semana 05
+
+● Finalização e relatórios
+
+Semana 06
+
+● Correção
 
 
 
